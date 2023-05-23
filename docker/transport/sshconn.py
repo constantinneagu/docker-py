@@ -189,7 +189,8 @@ class SSHHTTPAdapter(BaseHTTPAdapter):
         self.ssh_params = {
             "hostname": base_url.hostname,
             "port": base_url.port,
-            "username": base_url.username
+            "username": base_url.username,
+            "password": base_url.password if base_url.password != '' else None,
             }
         ssh_config_file = os.path.expanduser("~/.ssh/config")
         if os.path.exists(ssh_config_file):
